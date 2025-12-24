@@ -4,13 +4,13 @@
       "title": "Project 1",
       "description": "A brief description of Project 1.",
       "technologies": ["HTML", "CSS", "JavaScript"],
-      "link": "projects/project-1.md"
+      "link": "projects/project-1"
     },
     {
       "title": "Project 2",
       "description": "A brief description of Project 2.",
       "technologies": ["Python", "Flask", "SQL"],
-      "link": "projects/project-2.md"
+      "link": "projects/project-2"
     }
   ]
 }
