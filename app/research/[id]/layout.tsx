@@ -1,3 +1,4 @@
+import React from 'react';
 import researchData from '../../../data/research.json';
 
 export function generateStaticParams() {

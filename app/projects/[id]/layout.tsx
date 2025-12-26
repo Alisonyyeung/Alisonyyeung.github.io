@@ -1,3 +1,4 @@
+import React from 'react';
 import projectsData from '../../../data/projects.json';
 
 export function generateStaticParams() {
