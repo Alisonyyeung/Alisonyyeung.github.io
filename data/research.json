@@ -1,0 +1,218 @@
+{
+  "research": [
+    {
+      "id": "research-1",
+      "title": "Robot Object Grasping and Placement",
+      "description": "Developed methods to enhance dual-arm robot performance in coordinated object grasping and precise placement tasks.",
+      "details": "This research project focuses on developing an advanced framework for dual-arm robotic manipulation that addresses the complex challenge of simultaneously optimizing both grasp quality and trajectory.",
+      "date": "2025 Aug - Present",
+      "team_lead": true,
+      "key_contributions": [
+        "Developed and implemented an integrated framework for dual-arm robotic manipulation",
+        "Explored and evaluated different strategies for improving motion planning quality",
+        "Performed extensive simulation studies across a range of tasks and object types"
+      ],
+      "technologies": [
+        "Robotics",
+        "Dual-Arm Manipulation"
+      ],
+      "link": "/research/research-1",
+      "content": [
+        {
+          "type": "text",
+          "title": "Overview",
+          "content": "TBC (research in progress)"
+        },
+        {
+          "type": "text",
+          "title": "Methodology",
+          "content": "TBC (research in progress)"
+        },
+        {
+          "type": "text",
+          "title": "Results",
+          "content": "TBC (research in progress)"
+        }
+      ]
+    },
+    {
+      "id": "research-2",
+      "title": "CLIP Adaption for Remote Sensing Image Classification",
+      "description": "We explored the use of CLIP for remote sensing image classification by adapting the model to the remote sensing domain, via LoRA and MaPLe.",
+      "details": "Remote sensing image classification presents unique challenges compared to natural image classification, including different spatial resolutions, spectral characteristics, and domain-specific features. This project investigates how to effectively adapt the powerful CLIP (Contrastive Language-Image Pre-training) model to the remote sensing domain.\n\nWe explored two main adaptation strategies: LoRA (Low-Rank Adaptation) and MaPLe (Multi-modal Prompt Learning). LoRA allows efficient fine-tuning by introducing trainable low-rank matrices, while MaPLe learns multi-modal prompts that can better align the vision and text encoders for remote sensing tasks.\n\nA key innovation in this work is the implementation of a dual vision encoder architecture, which processes remote sensing images through two complementary pathways to capture both local and global features. We conducted comprehensive ablation studies to evaluate the impact of different components, including image caption handling strategies, text augmentation techniques, and various configuration settings for LoRA, dual vision encoder, and MaPLe.\n\nThe evaluation pipeline was developed to test the adapted models on standard remote sensing datasets, demonstrating improved classification performance while maintaining computational efficiency. This research contributes to making large-scale vision-language models more accessible and effective for domain-specific applications.",
+      "date": "2025 Nov - Dec",
+      "team_lead": true,
+      "key_contributions": [
+        "Adapted the CLIP model to the remote sensing domain via LoRA and MaPLe",
+        "Implemented dual vision encoder for CLIP to improve model performance",
+        "Conducted ablation studies to evaluate model performance on different image caption handling strategies, text augmentation, LoRA/ dual vision encoder/MaPLe configuarations",
+        "Developed the evaluation pipeline on the remote sensing dataset"
+      ],
+      "technologies": [
+        "CLIP",
+        "LoRA",
+        "Prompt Learning"
+      ],
+      "image": "/assets/research_img/CLIP_remote_arch.png",
+      "link": "/research/research-2",
+      "report": "/assets/reports/CLIP_remote.pdf",
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/research_img/CLIP_remote_arch.png",
+          "alt": "DualMaPLe-CLIP architecture",
+          "caption": "Our proposed DualMaPLe-CLIP ( Dual-Vision CLIP with MaPLe-style Multi- modal Prompt Coupling) framework"
+        },
+        {
+          "type": "image",
+          "src": "/assets/research_img/CLIP_remote_results.png",
+          "alt": "Main results on RSICD test set (Top-k accuracy %)",
+          "caption": "Main results on RSICD test set (Top-k accuracy %)"
+        },
+        {
+          "type": "image",
+          "src": "/assets/research_img/CLIP_remote_maple_results.png",
+          "alt": "Ablation of CLIP variants with MaPLe (Top-k accuracy %)",
+          "caption": "Ablation of CLIP variants with MaPLe (Top-k accuracy %)"
+        }
+      ],
+      "content": [
+        {
+          "type": "text",
+          "title": "Overview",
+          "content": "Remote sensing image classification presents unique challenges compared to natural image classification, including different **spatial resolutions**, **spectral characteristics**, and **domain-specific features**. This project investigates how to effectively adapt the powerful **CLIP (Contrastive Language-Image Pre-training)** model to the remote sensing domain."
+        },
+        {
+          "type": "text",
+          "title": "Methodology",
+          "content": "We explored two main adaptation strategies: **LoRA (Low-Rank Adaptation)** and **MaPLe (Multi-modal Prompt Learning)**. LoRA allows efficient fine-tuning by introducing trainable low-rank matrices, while MaPLe learns multi-modal prompts that can better align the vision and text encoders for remote sensing tasks.\n\nA key innovation in this work is the implementation of a **dual vision encoder architecture** (which processes remote sensing images through ViT and Swin Transformer with a learnable fusion weight to capture both local and global features) and its **integration with MaPLe**. [IMAGE:0] We conducted comprehensive **ablation studies** to evaluate the impact of different components, including **image caption handling strategies**, **text augmentation techniques**, and **various configuration settings** for LoRA, dual vision encoder, and MaPLe."
+        },
+        {
+          "type": "text",
+          "title": "Results",
+          "content": "The evaluation pipeline was developed to test the adapted models on RSICD test set for image classification. Key findings include: [IMAGE:2] \n\n• **MaPLe works better with a dual encoder**: ViT+Swin under MaPLe achieves **+6.2% Top-1** over ViT under MaPLe alone (41.5% vs. 35.3%), leveraging Swin's **hierarchical features** for better **cross-modal alignment**.\n\n• **LoRA Stabilizes MaPLe**: Adding LoRA to ViT boosts Top-1 by **+20.9%**.\n\n• **Training Challenges**: Despite these improvements, MaPLe's overall performance does not surpass models without MaPLe, likely due to its requirement for **extended training (15+ epochs)** to stabilize convergence. [IMAGE:1] Our model with single vision encoder + vision-only LoRA model outperforms all baselines, achieving **91.9% Top-1 accuracy** on RSICD—**+2.9%** over the benchmark CLIP-rsicd (89.0%) and **+88.2%** over zero-shot CLIP. We found that:\n\n• **Dual encoders (ViT+Swin) added only +0.8%**\n\n• **Combining LoRA + dual encoders underperformed (89.8%)**, likely due to **optimization challenges**."
+        }
+      ]
+    },
+    {
+      "id": "research-3",
+      "title": "Advanced Spleen Segmentation in 3D CT Scans Using Transformer-Based and Semi-Supervised Learning",
+      "description": "This project advanced spleen segmentation in 3D CT scans by leveraging transformer-based models (SwinUNET, SAM-Med3D) and semi-supervised learning (UniMatch).",
+      "details": "Medical image segmentation, particularly for organ segmentation in 3D CT scans, is a critical task in medical imaging with applications in diagnosis, treatment planning, and surgical navigation. The spleen, being a soft organ with variable shape and size, presents significant challenges for automated segmentation.\n\nThis project explores the application of transformer-based architectures, specifically SwinUNET and SAM-Med3D, which have shown remarkable success in natural image segmentation. These models leverage self-attention mechanisms to capture long-range dependencies in 3D medical volumes, which is crucial for accurate organ boundary detection.\n\nTo address the challenge of limited labeled medical data, we integrated semi-supervised learning techniques using UniMatch, which effectively utilizes unlabeled data to improve model generalization. This approach is particularly valuable in medical imaging where expert annotations are expensive and time-consuming to obtain.\n\nThrough comprehensive ablation studies, we evaluated different transformer architectures and semi-supervised learning configurations to identify optimal settings for spleen segmentation. The results demonstrate significant improvements in segmentation accuracy, with the combined approach of transformer-based models and semi-supervised learning achieving state-of-the-art performance on standard medical imaging benchmarks.",
+      "date": "2025 April - May",
+      "team_lead": true,
+      "key_contributions": [
+        "Implemented and fine-tuned the transformer-based models (SwinUNET, SAM-Med3D) for spleen segmentation",
+        "Integrated the semi-supervised learning (UniMatch) with SwinUNET for spleen segmentation",
+        "Conducted ablation studies to evaluate model performance on different transformer-based models and semi-supervised learning configurations"
+      ],
+      "technologies": [
+        "3D Computer Vision",
+        "Deep Learning for Medical Images",
+        "Semi-Supervised Learning"
+      ],
+      "image": "/assets/research_img/CT_segmentation.png",
+      "link": "/research/research-3",
+      "report": "/assets/reports/CT_segmentation.pdf",
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/research_img/CT_segmentation_results.png",
+          "alt": "CT scan spleen segmentation visualization",
+          "caption": "CT scan spleen segmentation visualization"
+        },
+        {
+          "type": "image",
+          "src": "/assets/research_img/CT_segmentation_metrics.png",
+          "alt": "Overall performance metrics comparison",
+          "caption": "Overall performance metrics comparison"
+        }
+      ],
+      "content": [
+        {
+          "type": "text",
+          "title": "Overview",
+          "content": "This study aims to improve spleen segmentation accuracy on 3D CT volumes, using a standard 3D U-Net as the baseline for comparison. We systematically evaluated the following four methods:\n\n**1. SwinUNETR (fully supervised)**: We adapted the SwinUNETR architecture (Swin Transformer-based U-Net variant) to process NIfTI-formatted 3D volumes and trained it in a fully supervised manner on the labeled dataset.\n\n**2. SwinUNETR + UniMatch (semi-supervised)**: We integrated the same SwinUNETR architecture with the UniMatch framework for semi-supervised learning, leveraging an additional 100 unlabeled cases from the AbdomenCT-1K dataset.\n\n**3. Fine-tuned SAM-Med3D**: We performed task-specific fine-tuning of SAM-Med3D (a promptable 3D volumetric foundation model) to adapt it specifically to spleen segmentation.\n\n**4. MedSAM-2 (zero-shot inference)**: We applied MedSAM-2 in a fully zero-shot setting (no fine-tuning or task-specific adaptation) to evaluate its direct generalization to spleen segmentation.\n\nAll four methods — (1) **SwinUNETR (fully supervised)**, (2) **SwinUNETR + UniMatch (semi-supervised)**, (3) **fine-tuned SAM-Med3D**, and (4) **MedSAM-2 (zero-shot)** — substantially outperformed the 3D U-Net baseline across key metrics: **Dice Similarity Coefficient (DSC)**, **Jaccard Index**, **Average Surface Distance (ASD)**, and **95% Hausdorff Distance (95HD)**."
+        },
+        {
+          "type": "text",
+          "title": "Methodology: Semi-supervised Learning with UniMatch on SwinUNETR",
+          "content": "To enhance **SwinUNETR**'s performance in data-scarce regimes, we adapt the **UniMatch** semi-supervised learning framework — originally developed for 2D semantic segmentation — to **3D spleen segmentation** on volumetric CT scans.\n\n**UniMatch** builds on the **weak-to-strong consistency principle**: it generates reliable pseudo-labels from weakly augmented inputs and enforces prediction consistency on strongly perturbed versions of unlabeled samples. The total loss combines a standard supervised loss (e.g., Dice + cross-entropy) on labeled data with an unsupervised consistency loss between predictions under different perturbations.\n\n**Key innovation**: We extend **UniMatch** to the 3D domain by:\n\n(1) adapting UniMatch's weak-to-strong **image-level dual-stream perturbation** strategy to volumetric data.\n\n(2) introducing **feature-level perturbations** directly into the **SwinUNETR** architecture.\n\nThis enables more robust representation learning from limited labeled 3D scans, improving generalization in clinical settings with scarce annotations."
+        },
+        {
+          "type": "text",
+          "title": "Results",
+          "content": "[IMAGE:1]**Quantitative Metrics**\n\n• **3D U-Net**: Baseline performance.\n\n• **SwinUNETR**: Minor gains in **Dice & Jaccard**; worse **ASD & 95HD** than baseline.\n\n• **SwinUNETR + UniMatch (semi-supervised)**: Moderate improvement in **Dice & Jaccard**; substantial gains in **ASD & 95HD**.\n\n• **Foundation models (SAM-Med3D & MedSAM-2)**: Largest improvements across all metrics.\n\n [IMAGE:0]**Segmentation Visualization**\n\n• All proposed methods outperform **3D U-Net** in segmentation quality.\n\n• **SwinUNETR**: Better volume coverage than baseline, but less precise boundaries.\n\n• **SwinUNETR + UniMatch**: Clearer boundary accuracy.\n\n• **SAM-Med3D & MedSAM-2**: Best overall – superior boundary delineation, highest overlap with ground truth, and fewest false positives.\n\nFoundation models (especially **MedSAM-2 zero-shot**) deliver the most significant and robust advances in both **quantitative accuracy** and **visual segmentation quality**, followed by semi-supervised learning, with transformer-based supervised methods offering modest gains over the baseline."
+        }
+      ]
+    },
+    {
+      "id": "research-4",
+      "title": "Robotics Hand Exoskeleton (Multi-I Robotic System (MIRS) Lab)",
+      "description": "This project developed a robotics hand exoskeleton for people with hand impairment by leveraging the power of robotics, PID control, and computer vision.",
+      "details": "Hand exoskeletons represent a promising solution for assisting individuals with hand impairments, whether due to injury, stroke, or other medical conditions. This project, conducted at the Multi-I Robotic System (MIRS) Lab, focuses on developing an intelligent robotic hand exoskeleton that can adapt to user needs and provide natural, intuitive assistance.\n\nThe system integrates multiple advanced technologies: pressure sensors for adaptive gripping that responds to object characteristics, PID (Proportional-Integral-Derivative) control for precise and stable finger movements, and computer vision through the OpenMV module for object recognition and manipulation planning.\n\nThe hardware implementation involves programming an STM32 microcontroller that coordinates servo control, processes AI voice recognition commands, and manages a Wi-Fi-based web interface. Communication protocols including UART and I2C enable seamless integration between different system components.\n\nA key innovation is the mechanical design that enables fingers with higher degrees of freedom (DoF), allowing for more natural and versatile hand movements. The system can be controlled through multiple interfaces: voice commands, web-based interface, or direct sensor feedback, making it accessible to users with varying levels of mobility.\n\nThis research contributes to the field of assistive robotics by demonstrating how modern robotics, control systems, and computer vision can be integrated to create practical solutions for improving quality of life for individuals with hand impairments.",
+      "date": "2025 Feb - Jul",
+      "team_lead": true,
+      "key_contributions": [
+        "Created a robotic hand exoskeleton for adaptive gripping with pressure sensors and PID control.",
+        "Programmed an STM32 microcontroller for servo control using AI voice recognition and a Wi-Fi-based web interface via UART and I2C protocols.",
+        "Integrated computer vision by interfacing with the OpenMV module.",
+        "Designed and implemented mechanics enabling fingers with higher DoF movements."
+      ],
+      "technologies": [
+        "PID Control",
+        "Computer Vision",
+        "STM32",
+        "Pressure sensing",
+        "Robotics",
+        "SolidWorks"
+      ],
+      "image": "/assets/research_img/robotic_hand_exoskeleton_results.png",
+      "link": "/research/research-4",
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/research_img/robotic_hand_exoskeleton_grasp.png",
+          "alt": "Robotic hand exoskeleton",
+          "caption": "Object size estimation and adaptive grasp type selection"
+        },
+        {
+          "type": "image",
+          "src": "/assets/research_img/robotic_hand_exoskeleton_results.png",
+          "alt": "Robotic hand exoskeleton",
+          "caption": "Exoskeleton grasping objects with different sizes and grasp types"
+        }
+      ],
+      "content": [
+        {
+          "type": "text",
+          "title": "Overview",
+          "content": "**Robotic hand exoskeletons** restore hand function for individuals with motor impairments and enhance performance in tasks like typing or playing instruments. However, most systems focus on basic flexion and extension, lacking **adaptive grasping** for various object sizes and control of **finger abduction and adduction**, critical for complex activities.\n\nThis research introduces two systems: the first provides six degrees of freedom with **vision-based object size estimation**, **adaptive grasp type selection**, **real-time web control**, and **PID-based pressure sensing**. The second adds independent **abduction and adduction control** to the exoskeleton, increasing the total degrees of freedom to eight, enabling advanced tasks like typing.\n\nThese advancements mark significant progress in multifunctional, user-adaptive hand exoskeletons for daily assistance and enhanced performance."
+        },
+        {
+          "type": "text",
+          "title": "Methodology",
+          "content": "For adaptive grasping, the OpenMV module estimated object sizes to determine suitable grasp types (two-finger, three-finger, or wrap grasp) for diverse objects.  [IMAGE:0]To adjust grasping force, I integrated a PID-based pressure-sensing module into the exoskeleton and controlled pressure adjustments via a voice command system.[IMAGE:1]"
+        }
+      ]
+    },
+    {
+      "id": "research-5",
+      "title": "Making Large Language Models Interact with Physical World",
+      "description": "This HKUST Undergraduate Research Opportunities Program (UROP) project explored the use of Large Language Models (LLMs) for automated life journaling with user-centric insights.",
+      "details": "Building upon existing work ([AutoLife](https://arxiv.org/abs/2412.15714)) on **LLM-assisted automated life journaling** from mobile sensor data, this project develops novel **interaction mechanisms** that improve users' ability to engage with and derive insights from their personal life archives.",
+      "date": "2024 June - 2025 Jan",
+      "team_lead": false,
+      "key_contributions": [
+        "Contributed to the development of an interactive LLM-powered system for automated life journaling based on mobile sensor data.",
+        "Created custom datasets and evaluated the LLM framework with NLP metrics."
+      ],
+      "technologies": [
+        "LLMs",
+        "Natural Language Processing"
+      ],
+      "link": "/research/research-5",
+      "paper": "https://arxiv.org/abs/2412.15714"
+    }
+  ]
+}

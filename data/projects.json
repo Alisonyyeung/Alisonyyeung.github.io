@@ -1,16 +1,114 @@
 {
   "projects": [
     {
-      "title": "Project 1",
-      "description": "A brief description of Project 1.",
-      "technologies": ["HTML", "CSS", "JavaScript"],
-      "link": "projects/project-1"
-    },
-    {
-      "title": "Project 2",
-      "description": "A brief description of Project 2.",
-      "technologies": ["Python", "Flask", "SQL"],
-      "link": "projects/project-2"
+      "id": "project-1",
+      "title": "AI Automated and Personalized Job Hunting Application",
+      "description": "We developed an AI-powered job-hunting app for HKUST students, offering automated personalized job matching and AI-generated cover letters for seamless one-click job applications.",
+      "date": "2025 Sep - Dec",
+      "team_lead": true,
+      "key_contributions": [
+        "Created the AI cover letter generation and application system",
+        "Developed the skills gap analysis and learning pathway dashboard",
+        "Designed the LLM framework for cover letter generation, skill gaps and learning pathway",
+        "Unified the Supabase database for storing all relevant tables used in the app and for collaboration between teammates"
+      ],
+      "technologies": [
+        "Full-stack Development",
+        "JavaScript",
+        "FastAPI",
+        "React Native",
+        "Supabase",
+        "LLMs",
+        "Email Integration",
+        "Python"
+      ],
+      "image": "/assets/projects_img/AI_job_hunt_app/dashboard.png",
+      "link": "/projects/project-1",
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/system.png",
+          "alt": "System architecture of the job hunting application",
+          "caption": "System architecture of the job hunting application"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/component.png",
+          "alt": "System component and interaction of the job hunting application",
+          "caption": "System component and interaction of the job hunting application"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/dashboard.png",
+          "alt": "Job board and AI job hunt dashboard of the job hunting application",
+          "caption": "Job board and AI job hunt dashboard of the job hunting application"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/match_LLM.png",
+          "alt": "LLM job matching framework",
+          "caption": "LLM job matching framework"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/CL.png",
+          "alt": "AI cover letter generation and email job application interface",
+          "caption": "AI cover letter generation and email job application interface"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/CL_LLM.png",
+          "alt": "LLM framework for cover letter generation",
+          "caption": "LLM framework for cover letter generation"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/progress.png",
+          "alt": "Progress tracking and job application status dashboard",
+          "caption": "Progress tracking and job application status dashboard"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/skills.png",
+          "alt": "Dashboard for per-job skills analysis, overall skills analysis and suggest learning pathways",
+          "caption": "Dashboard for per-job skills analysis, overall skills analysis and suggest learning pathways"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/skills_LLM.png",
+          "alt": "LLM framework for skills analysis and learning pathway suggestion",
+          "caption": "LLM framework for skills analysis and learning pathway suggestion"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/main_flow.png",
+          "alt": "Main user flow of the job hunting application",
+          "caption": "Main user flow of the job hunting application"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects_img/AI_job_hunt_app/second_flow.png",
+          "alt": "User flow for skill gap analysis and learning through suggested pathways before job application",
+          "caption": "User flow for skill gap analysis and learning through suggested pathways before job application"
+        }
+      ],
+      "content": [
+        {
+          "type": "text",
+          "title": "Overview",
+          "content": "The app features:\n\n• **Job board with scraped listings** from HKUST's job board and a **wishlist system**.\n\n• **AI-driven job matching** tailored to user profiles.\n\n• **AI-generated cover letters** for selected jobs.\n\n• **One-click email job application** functionality."
+        },
+        {
+          "type": "text",
+          "title": "Implementation",
+          "content": "**System Design**\n\nThe application is built on a modular architecture that integrates web scraping, AI-powered matching, and automated application workflows. [IMAGE:0] The system architecture demonstrates the core components: a **frontend interface**, **backend API server**, **job scraping service**, and **LLM integration layer** for AI-powered features.\n\n[IMAGE:1] The system component diagram illustrates the **interaction flow** between different modules, including how user data flows through the **job matching engine**, **cover letter generator**, and **skills analysis system** to provide a seamless job hunting experience.\n\n**Job Board and Dashboard**\n\n[IMAGE:2] The main dashboard provides users with a comprehensive **job board interface** featuring scraped listings from HKUST's job board. The interface includes a **wishlist system** for saving preferred positions and displays **AI-generated job match scores** to help users identify the most relevant opportunities.\n\n**LLM Framework for Job Matching**\n\n[IMAGE:3] The **LLM-based job matching framework** analyzes user profiles, including skills, experience, and preferences, against job descriptions. The system uses **semantic similarity** and **contextual understanding** to generate personalized match scores, enabling users to discover opportunities that align with their career goals.\n\n**Cover Letter Generation**\n\n[IMAGE:4] The **cover letter generation interface** allows users to select a job and automatically generate a personalized cover letter. \n\n**LLM framework for conver letter generation**\n\n [IMAGE:5] The underlying **LLM framework** processes the user's profile, job requirements, and company information to create tailored cover letters that highlight relevant skills and experiences.\n\n**Progress Tracking Dashboard**\n\n[IMAGE:6] The **progress tracking dashboard** provides users with a comprehensive view of their job application status. It tracks submitted applications, interview stages, and outcomes, helping users manage their job search effectively.\n\n**Skills Analysis Dashboard**\n\n[IMAGE:7] The **skills analysis dashboard** offers **per-job skills analysis**, identifying skill gaps for specific positions, and provides an **overall skills assessment** across all saved jobs.\n\n**Skills Gap Analysis and Learning Pathway Generation LLM Framework**\n\n[IMAGE:8] The system employs a **two-stage LLM pipeline** to generate personalized learning recommendations. The first LLM performs **per-job skill gap analysis**, comparing the user profile against each job description to identify **matched skills**, **missing skills**, and **nice-to-have skills**. After preprocessing, a second LLM aggregates these analyses by **job clusters** (e.g., \"Machine Learning Engineer\") to identify **top missing skills** with frequency statistics. The final output generates **prioritized learning pathways** with recommended actions, curated resources, and estimated completion times for each skill gap."
+        },
+        {
+          "type": "text",
+          "title": "Results",
+          "content": "**User Experience Flow**\n\nThe application provides two main user flows that demonstrate the complete job hunting journey:\n\n[IMAGE:9] The **main user flow** illustrates the primary workflow: users browse the job board, receive **AI-powered job recommendations**, generate personalized cover letters, and submit applications with **one-click email functionality**.\n\n[IMAGE:10] The **alternative user flow** focuses on **skill gap analysis** and **learning pathway suggestions**. Users can identify skill gaps for target positions, follow suggested learning paths, and then apply to jobs once they've developed the necessary competencies. This flow emphasizes the app's role in supporting long-term career development beyond immediate job applications."
+        }
+      ]
     }
   ]
 }

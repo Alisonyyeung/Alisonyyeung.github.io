@@ -1,31 +1,118 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Navigation from '../components/Navigation';
+import researchData from '../data/research.json';
+import projectsData from '../data/projects.json';
 
 const HomePage = () => {
-    return (
-        <div>
-            <Header />
-            <Navigation />
-            <main>
-                <h1>Welcome to My Personal Website</h1>
-                <section>
-                    <h2>About Me</h2>
-                    <p>Welcome to my personal website! Here you can find information about my background, skills, and projects.</p>
-                </section>
-                <section>
-                    <h2>Featured Projects</h2>
-                    <p>Check out some of my recent work:</p>
-                    <ul>
-                        <li><a href="/projects/project-1">Project 1</a></li>
-                        <li><a href="/projects/project-2">Project 2</a></li>
-                    </ul>
-                </section>
-            </main>
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="page">
+      <Header />
+      <main className="page-body" style={{ position: 'relative', zIndex: 1 }}>
+        <section className="section">
+          <div className="section__header">
+            <h1>About Me</h1>
+            <p style={{ fontSize: '1.1rem', marginBottom: '20px', fontWeight: 500 }}>
+              Hello! I'm Alison Yeung (Yeung Wun Lam).
+            </p> <p style={{ marginTop: '16px', marginBottom: 0 }}>
+              Beyond research, I love turning ideas into reality—whether it's developing AI tools, or crafting playful projects that solve everyday problems (and occasionally make life more fun ✨).
+            </p>
+          </div>
+          
+          <div style={{ marginTop: '32px' }}>
+            <h2>Background</h2>
+            <p>
+              I am pursuing a <strong>Bachelor's degree in Computer Engineering</strong> at the <strong>Hong Kong University of Science and Technology (HKUST)</strong>. As a <strong>Student Researcher</strong> in the HKUST <strong>Undergraduate Research Opportunities Program (UROP)</strong>, I've applied my technical skills to real-world challenges in robotics and AI, bridging theory and practice.
+            </p>
+            <p style={{ marginTop: '16px', marginBottom: 0 }}>
+              I'm passionate about pushing the boundaries of <strong>Embodied AI</strong>. My work focuses on <strong>Robotic Manipulation</strong>, <strong>Computer Vision & Deep Learning</strong>, <strong>LLM Applications</strong>, and <strong>Embedded Systems</strong>.
+            </p>
+          </div>
+
+          <div style={{ marginTop: '48px' }}>
+            <h2>Research</h2>
+            <p className="muted" style={{ marginBottom: '24px' }}>
+              Explore my research interests and publications.
+            </p>
+            <div className="scrollable-cards">
+              {researchData.research.map((item) => (
+                <Link key={item.id} href={item.link} className="scrollable-card">
+                  {item.image && (
+                    <div className="scrollable-card__image">
+                      <Image 
+                        src={item.image} 
+                        alt={item.title}
+                        width={280}
+                        height={180}
+                        sizes="(max-width: 768px) 280px, 280px"
+                        style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                        loading="lazy"
+                        quality={80}
+                      />
+                    </div>
+                  )}
+                  <div className="scrollable-card__content">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+                      {item.date && (
+                        <span style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>{item.date}</span>
+                      )}
+                      {item.team_lead && (
+                        <span className="team-lead-badge" style={{ fontSize: '0.75rem', padding: '4px 8px' }}>Team Lead</span>
+                      )}
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ marginTop: '48px' }}>
+            <h2>Projects</h2>
+            <p className="muted" style={{ marginBottom: '24px' }}>
+              Discover my portfolio of projects and applications.
+            </p>
+            <div className="scrollable-cards">
+              {projectsData.projects.map((project) => (
+                <Link key={project.id} href={project.link} className="scrollable-card">
+                  {project.image && (
+                    <div className="scrollable-card__image">
+                      <Image 
+                        src={project.image} 
+                        alt={project.title}
+                        width={280}
+                        height={180}
+                        sizes="(max-width: 768px) 280px, 280px"
+                        style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                        loading="lazy"
+                        quality={80}
+                      />
+                    </div>
+                  )}
+                  <div className="scrollable-card__content">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+                      {(project as any).date && (
+                        <span style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>{(project as any).date}</span>
+                      )}
+                      {(project as any).team_lead && (
+                        <span className="team-lead-badge" style={{ fontSize: '0.75rem', padding: '4px 8px' }}>Team Lead</span>
+                      )}
+                    </div>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
 };
 
 export default HomePage;

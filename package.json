@@ -18,11 +18,15 @@
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
+    "@types/leaflet": "^1.9.21",
+    "leaflet": "^1.9.4",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
   },
   "devDependencies": {
+    "@types/node": "25.0.3",
+    "@types/react": "19.2.7",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "typescript": "latest"

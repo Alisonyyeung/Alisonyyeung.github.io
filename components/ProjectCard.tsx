@@ -9,12 +9,18 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, technologies, link }) => {
     return (
-        <div className="project-card">
-            <h3>{title}</h3>
-            <p>{description}</p>
-            <p><strong>Technologies Used:</strong> {technologies.join(', ')}</p>
-            <a href={link} target="_blank" rel="noopener noreferrer">View Project</a>
-        </div>
+        <article className="project-card">
+            <div>
+                <h3 style={{ margin: '0 0 8px' }}>{title}</h3>
+                <p style={{ margin: '0 0 12px', color: 'var(--muted)' }}>{description}</p>
+                <div className="pill-group" style={{ marginBottom: '12px' }}>
+                    {technologies.map((tech, index) => (
+                        <span className="pill" key={index}>{tech}</span>
+                    ))}
+                </div>
+            </div>
+            <a href={link} className="text-link" target="_blank" rel="noopener noreferrer">View Project →</a>
+        </article>
     );
 };
 

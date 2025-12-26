@@ -1,0 +1,19 @@
+{
+    "publications": [
+        {
+            "id": "pub-1",
+            "title": "CBAM-SwinT-BL: Small Rail Surface Defect Detection Method Based on Swin Transformer with Block Level CBAM Enhancement",
+            "authors": [
+                "Jiayi Zhao",
+                "Alison Wun-Lam Yeung",
+                "Muhammad Ali",
+                "Songjiang Lai",
+                "Vincent To-Yee Ng"
+            ],
+            "journal": "IEEE Access",
+            "date": "Dec 2024",
+            "year": 2024,
+            "link": "https://arxiv.org/abs/2409.20113"
+        }
+    ]
+}

@@ -1,18 +1,21 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Navigation from '../components/Navigation';
 import '../styles/globals.css';
 
-const Layout = ({ children }) => {
-    return (
-        <div>
-            <Header />
-            <Navigation />
-            <main>{children}</main>
-            <Footer />
-        </div>
-    );
+export const metadata = {
+  title: 'Alison Yeung',
+  description: 'Welcome to my personal portfolio website',
 };
 
-export default Layout;
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+      </body>
+    </html>
+  );
+}
