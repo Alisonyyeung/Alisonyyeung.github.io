@@ -34,7 +34,7 @@ const AboutPage = () => {
           <div style={{ marginTop: '48px' }}>
             <h2>Research</h2>
             <p className="muted" style={{ marginBottom: '24px' }}>
-              Explore my research interests and publications.
+              Explore my research interests and experiences.
             </p>
             <div className="scrollable-cards">
               {researchData.research.map((item) => (
