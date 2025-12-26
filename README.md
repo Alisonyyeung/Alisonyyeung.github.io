@@ -1,71 +1,161 @@
-# Personal Website
+# Alison Yeung's Personal Website
 
-This repository contains the source code for my personal website, built using Next.js. The website serves as a portfolio to showcase my projects and provide information about myself.
+A modern, nature-themed personal portfolio website built with Next.js, showcasing research projects, publications, and personal experiences. The website features an interactive world map, dynamic detail pages, and a clean, wide layout with nature-inspired graphics.
+
+## Features
+
+- **About Me**: Homepage featuring background, research highlights, and project showcases
+- **Research**: Detailed research projects with interactive content, images, and PDF reports
+- **Projects**: Portfolio of projects with implementation details and results
+- **Publications**: Academic publications with links to papers
+- **Personal Life**: Interests and an interactive world map showing travel experiences
+- **CV/Resume**: Professional resume and experience
+
+## Tech Stack
+
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **Styling**: CSS with custom properties and modern design
+- **Maps**: Leaflet.js for interactive world map
+- **Image Optimization**: Next.js Image component with lazy loading
 
 ## Project Structure
 
-- **app/**: Contains the main application files.
-  - **layout.tsx**: Defines the layout component for the application, wrapping all pages with a common structure.
-  - **page.tsx**: The main entry point for the home page.
-  - **about/**: Contains the About page.
-    - **page.tsx**: Provides information about myself, my background, and my skills.
-  - **projects/**: Displays the Projects page.
-    - **page.tsx**: Showcases my projects and links to detailed project descriptions.
-  - **contact/**: Includes the Contact page.
-    - **page.tsx**: Features a contact form and my contact information.
-  - **resume/**: Presents my Resume page.
-    - **page.tsx**: Summarizes my professional experience and skills.
+```
+├── app/
+│   ├── page.tsx              # Homepage (About Me)
+│   ├── layout.tsx            # Root layout
+│   ├── about/                # About page (redirects to homepage)
+│   ├── research/             # Research listing and detail pages
+│   │   ├── page.tsx          # Research projects overview
+│   │   └── [id]/             # Dynamic research detail pages
+│   ├── projects/             # Projects listing and detail pages
+│   │   ├── page.tsx          # Projects overview
+│   │   └── [id]/             # Dynamic project detail pages
+│   ├── publications/         # Publications page
+│   ├── personal-life/        # Personal interests and travel map
+│   └── resume/               # CV/Resume page
+├── components/
+│   ├── Header.tsx            # Site header with navigation
+│   ├── Footer.tsx            # Site footer with contact info
+│   ├── WorldMap.tsx          # Interactive Leaflet world map
+│   └── ProjectCard.tsx       # Project card component
+├── data/
+│   ├── research.json         # Research projects data
+│   ├── projects.json         # Projects data
+│   └── publications.json     # Publications data
+├── public/
+│   └── assets/               # Images, reports, and static assets
+│       ├── research_img/     # Research project images
+│       ├── projects_img/     # Project images
+│       ├── reports/          # PDF research reports
+│       └── nature3.jpeg      # Nature background image
+└── styles/
+    └── globals.css           # Global styles and theme
 
-- **components/**: Contains reusable components for the application.
-  - **Header.tsx**: Displays the website's title and logo.
-  - **Footer.tsx**: Contains copyright information and other footer content.
-  - **Navigation.tsx**: Provides links to the main sections of the website.
-  - **ProjectCard.tsx**: Displays individual project details in a card format.
-
-- **public/**: Contains static assets such as images, icons, or other files that can be served directly.
-
-- **styles/**: Contains global CSS styles for the application.
-  - **globals.css**: Defines the overall look and feel of the website.
-
-- **data/**: Contains structured data about my projects.
-  - **projects.json**: Includes titles, descriptions, technologies used, and links for each project.
-
-- **package.json**: Configuration file for npm, listing dependencies, scripts, and metadata for the project.
-
-- **tsconfig.json**: Configuration file for TypeScript, specifying compiler options and files to include in the compilation.
-
-- **next.config.js**: Contains configuration settings for Next.js, allowing customization of the framework's behavior.
+```
 
 ## Getting Started
 
-To set up the website locally, follow these steps:
+### Prerequisites
+
+- Node.js 18+ and npm
+
+### Installation
 
 1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/personal-website.git
+
+   ```bash
+   git clone https://github.com/Alisonyyeung/Alisonyyeung.github.io.git
+   cd Alisonyyeung.github.io
    ```
 
-2. Navigate to the project directory:
-   ```
-   cd personal-website
-   ```
+2. Install dependencies:
 
-3. Install the dependencies:
-   ```
+   ```bash
    npm install
    ```
 
-4. Run the development server:
-   ```
+3. Run the development server:
+
+   ```bash
    npm run dev
    ```
 
-5. Open your browser and visit `http://localhost:3000` to view the website.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Contributing
+### Build for Production
 
-Feel free to fork the repository and submit pull requests for any improvements or suggestions.
+```bash
+npm run build
+npm start
+```
+
+## Key Features
+
+### Dynamic Content Pages
+
+- Research and project detail pages are dynamically generated from JSON data
+- Support for rich text formatting, inline images, and media galleries
+- Interactive content blocks with markdown-like syntax
+
+### Interactive World Map
+
+- Built with Leaflet.js showing travel experiences
+- Color-coded markers for visited places, exchanges, and internships
+- Hover tooltips with detailed information
+
+### Image Optimization
+
+- Next.js Image component with automatic optimization
+- Lazy loading for below-the-fold images
+- Responsive image sizing
+
+### Nature-Themed Design
+
+- Transparent nature background image (taken in UK Oxford)
+- Wide, open layout without container constraints
+- Glassmorphism effects on cards
+
+## Data Structure
+
+### Research Projects (`data/research.json`)
+
+- Title, description, date, team lead status
+- Key contributions and technologies
+- Media gallery and detailed content blocks
+- PDF report links
+
+### Projects (`data/projects.json`)
+
+- Similar structure to research with implementation details
+- Media support for images in different positions
+- Overview, implementation, and results sections
+
+### Publications (`data/publications.json`)
+
+- Title, authors, journal, date, and links
+
+## Customization
+
+### Adding New Research/Projects
+
+Edit the respective JSON files in the `data/` directory. The structure supports:
+
+- Rich text with bold keywords (`**text**`)
+- Links (`[text](url)`)
+- Inline images (`[IMAGE:index]` or `[IMAGE:path]`)
+- Media galleries
+
+### Changing Background Image
+
+Replace `/public/assets/nature3.jpeg` with your own nature image. Adjust opacity in `styles/globals.css` (currently 0.15).
+
+## Contact
+
+- **Email**: alisonyeung0911@gmail.com
+- **GitHub**: [@Alisonyyeung](https://github.com/Alisonyyeung)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
