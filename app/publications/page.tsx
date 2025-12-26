@@ -61,10 +61,10 @@ const PublicationsPage = () => {
                     </span>
                   )}
                 </div>
-                {pub.doi && (
+                {(pub as any).doi && (
                   <div style={{ marginTop: '12px' }}>
                     <a 
-                      href={pub.doi} 
+                      href={(pub as any).doi} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-link"

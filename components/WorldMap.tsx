@@ -1,8 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface Location {
   name: string;
@@ -25,86 +23,96 @@ const locations: Location[] = [
 
 const WorldMap: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<L.Map | null>(null);
+  const mapInstanceRef = useRef<any>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    if (!mapRef.current || mapInstanceRef.current) return;
+    setIsClient(true);
+  }, []);
 
-    // Initialize map
-    const map = L.map(mapRef.current, {
-      center: [20, 0],
-      zoom: 2,
-      zoomControl: true,
-      scrollWheelZoom: true,
-      doubleClickZoom: true,
-      dragging: true,
-    });
+  useEffect(() => {
+    if (!isClient || !mapRef.current || mapInstanceRef.current) return;
 
-    // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 19,
-    }).addTo(map);
+    // Dynamically import Leaflet only on client side
+    import('leaflet').then((L) => {
+      if (!mapRef.current || mapInstanceRef.current) return;
 
-    // Custom icon colors
-    const createCustomIcon = (color: string) => {
-      return L.divIcon({
-        className: 'custom-marker',
-        html: `
-          <div style="
-            background-color: ${color};
-            width: 20px;
-            height: 20px;
-            border-radius: 50% 50% 50% 0;
-            transform: rotate(-45deg);
-            border: 3px solid white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-          ">
-            <div style="
-              width: 8px;
-              height: 8px;
-              background-color: white;
-              border-radius: 50%;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%) rotate(45deg);
-            "></div>
-          </div>
-        `,
-        iconSize: [20, 20],
-        iconAnchor: [10, 20],
+      // Initialize map
+      const map = L.map(mapRef.current, {
+        center: [20, 0],
+        zoom: 2,
+        zoomControl: true,
+        scrollWheelZoom: true,
+        doubleClickZoom: true,
+        dragging: true,
       });
-    };
 
-    // Add markers for each location
-    locations.forEach((location) => {
-      let color = '#3b82f6'; // Default blue for visited
-      if (location.type === 'exchange') {
-        color = '#10b981'; // Green
-      } else if (location.type === 'internship') {
-        color = '#f59e0b'; // Orange
-      }
-
-      const marker = L.marker([location.lat, location.lng], {
-        icon: createCustomIcon(color),
+      // Add OpenStreetMap tiles
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
       }).addTo(map);
 
-      // Add popup with location info
-      marker.bindPopup(`
-        <div style="padding: 4px;">
-          <strong style="font-size: 14px; color: ${color};">${location.name}</strong><br>
-          <span style="font-size: 12px; color: #666;">${location.description}</span>
-        </div>
-      `);
+      // Custom icon colors
+      const createCustomIcon = (color: string) => {
+        return L.divIcon({
+          className: 'custom-marker',
+          html: `
+            <div style="
+              background-color: ${color};
+              width: 20px;
+              height: 20px;
+              border-radius: 50% 50% 50% 0;
+              transform: rotate(-45deg);
+              border: 3px solid white;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            ">
+              <div style="
+                width: 8px;
+                height: 8px;
+                background-color: white;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+              "></div>
+            </div>
+          `,
+          iconSize: [20, 20],
+          iconAnchor: [10, 20],
+        });
+      };
 
-      // Add hover tooltip
-      marker.on('mouseover', function(this: L.Marker) {
-        this.openPopup();
+      // Add markers for each location
+      locations.forEach((location) => {
+        let color = '#3b82f6'; // Default blue for visited
+        if (location.type === 'exchange') {
+          color = '#10b981'; // Green
+        } else if (location.type === 'internship') {
+          color = '#f59e0b'; // Orange
+        }
+
+        const marker = L.marker([location.lat, location.lng], {
+          icon: createCustomIcon(color),
+        }).addTo(map);
+
+        // Add popup with location info
+        marker.bindPopup(`
+          <div style="padding: 4px;">
+            <strong style="font-size: 14px; color: ${color};">${location.name}</strong><br>
+            <span style="font-size: 12px; color: #666;">${location.description}</span>
+          </div>
+        `);
+
+        // Add hover tooltip
+        marker.on('mouseover', function(this: any) {
+          this.openPopup();
+        });
       });
-    });
 
-    mapInstanceRef.current = map;
+      mapInstanceRef.current = map;
+    });
 
     // Cleanup
     return () => {
@@ -113,7 +121,7 @@ const WorldMap: React.FC = () => {
         mapInstanceRef.current = null;
       }
     };
-  }, []);
+  }, [isClient]);
 
   return (
     <div style={{ 
