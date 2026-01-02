@@ -3,9 +3,9 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 const ResumePage = () => {
-  return (
+    return (
     <div className="page">
-      <Header />
+            <Header />
       <main className="page-body">
         <section className="section">
           <div className="section__header">
@@ -14,7 +14,7 @@ const ResumePage = () => {
           </div>
           
           <div style={{ marginTop: '32px' }}>
-            <h2>Professional Experience</h2>
+                    <h2>Professional Experience</h2>
             
             <div className="card" style={{ marginTop: '16px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '12px' }}>
@@ -42,12 +42,12 @@ const ResumePage = () => {
               <ul style={{ margin: '12px 0 0', paddingLeft: '20px' }}>
                 <li>Key responsibility or achievement</li>
                 <li>Another significant contribution</li>
-              </ul>
+                    </ul>
             </div>
           </div>
 
           <div style={{ marginTop: '32px' }}>
-            <h2>Education</h2>
+                    <h2>Education</h2>
             
             <div className="card" style={{ marginTop: '16px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '12px' }}>
@@ -77,7 +77,7 @@ const ResumePage = () => {
           </div>
 
           <div style={{ marginTop: '32px' }}>
-            <h2>Skills</h2>
+                    <h2>Skills</h2>
             <div style={{ marginTop: '16px' }}>
               <h3 style={{ marginBottom: '12px' }}>Technical Skills</h3>
               <div className="pill-group">
@@ -107,11 +107,11 @@ const ResumePage = () => {
           <div style={{ marginTop: '32px', textAlign: 'center' }}>
             <a href="#" className="button button--primary">Download PDF</a>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
-  );
+                </section>
+            </main>
+            <Footer />
+        </div>
+    );
 };
 
 export default ResumePage;

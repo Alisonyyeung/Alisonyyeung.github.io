@@ -18,7 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, technolog
                         <span className="pill" key={index}>{tech}</span>
                     ))}
                 </div>
-            </div>
+        </div>
             <a href={link} className="text-link" target="_blank" rel="noopener noreferrer">View Project →</a>
         </article>
     );
