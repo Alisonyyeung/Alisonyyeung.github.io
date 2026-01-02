@@ -19,12 +19,11 @@ const Header = () => {
             <li><Link href="/research">Research</Link></li>
             <li><Link href="/projects">Projects</Link></li>
             <li><Link href="/personal-life">Personal Life</Link></li>
-            <li><Link href="/about">CV</Link></li>
           </ul>
         </nav>
 
         <div className="header-actions">
-          <Link href="/about" className="button button--primary">View CV</Link>
+          <a href="/assets/Alison_Wun_Lam_YEUNG_CV.pdf" target="_blank" rel="noopener noreferrer" className="button button--primary">View CV</a>
         </div>
       </div>
     </header>

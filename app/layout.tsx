@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/globals.css';
 import 'leaflet/dist/leaflet.css';
+import Chatbot from '../components/Chatbot';
 
 export const metadata = {
   title: 'Alison Yeung',
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <Chatbot />
       </body>
     </html>
   );
